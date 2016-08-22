@@ -1,0 +1,16 @@
+<ivysettings>
+    <settings defaultResolver="defResolver" />
+    <latest-strategies>
+        <latest-lexico />
+    </latest-strategies>
+
+    <resolvers>
+        <chain name="defResolver">
+            <ibiblio name="maven2" m2compatible="true" usepoms="true" />
+            <ibiblio name="spring" m2compatible="true" usepoms="true" />
+        </chain>
+        <filesystem name="local" checkmodified="true">
+            <artifact pattern="${user.home}/.ivy2/cache/[organisation]/[artifact]/[revision]/[artifact]-[revision].[ext]" />
+        </filesystem>
+    </resolvers>
+</ivysettings>

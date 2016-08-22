@@ -1,0 +1,48 @@
+<project name="fizzbuzz-app" default="publish" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant" >
+    <taskdef name="ivy-configure" classname="org.apache.ivy.ant.IvyConfigure" />
+    <taskdef name="ivy-resolve" classname="org.apache.ivy.ant.IvyResolve" />
+    <taskdef name="ivy-retrieve" classname="org.apache.ivy.ant.IvyRetrieve" />
+    <taskdef name="ivy-cleancache" classname="org.apache.ivy.ant.IvyCleanCache" />
+
+    <ivy:settings file="ivy-settings.xml" id="ivy.instance" />
+
+    <path id="build.class.path">
+        <fileset dir="lib/main">
+            <include name="**/*.jar" />
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <delete dir="dist" quiet="true" />
+        <delete dir="build" quiet="true" />
+        <delete dir="gen" quiet="true" />
+  	</target>
+
+    <target name="init" depends="clean">
+    		<mkdir dir="build/main" />
+    		<mkdir dir="dist" />
+    		<mkdir dir="gen" />
+  	</target>
+
+    <target name="resolve">
+  		<delete>
+  			<fileset dir="lib/main" includes="*.jar" />
+  		</delete>
+  		<ivy:resolve file="ivy.xml" conf="compile" />
+  		<ivy:retrieve pattern="lib/main/[artifact]-[type]-[revision].[ext]" conf="compile" />
+  	</target>
+
+    <target name="compile" depends="init,resolve">
+        <javac destdir="build/main">
+            <src path="src/main/java" />
+            <classpath>
+                <path refid="build.class.path" />
+                <pathelement path="build/main" />
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="dist" depends="clean,compile">
+        <jar jarfile="dist/fizzbuz-app.jar" basedir="build/main" />
+  	</target>
+</project>
