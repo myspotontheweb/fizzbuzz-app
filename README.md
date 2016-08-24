@@ -1,5 +1,5 @@
 # fizzbuzz-app
-A simple app that depends on [fizzbuzz-model]().
+A simple app that depends on [fizzbuzz-model](https://github.com/hotmeatballsoup/fizzbuzz-model).
 
 ## Build & Publish Locally
 1. Clone this repo
