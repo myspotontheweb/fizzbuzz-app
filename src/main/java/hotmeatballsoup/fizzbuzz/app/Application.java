@@ -8,5 +8,7 @@ import hotmeatballsoup.fizzbuzz.model.Fizzbuzz;
 public class Application {
     public static void main(String[] args) {
         Fizzbuzz fizzbuzz = new Fizzbuzz(3);
+        
+        System.out.println(fizzbuzz.boo);
     }
 }
