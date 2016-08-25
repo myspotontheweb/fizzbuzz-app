@@ -1,4 +1,4 @@
-package hotmeatballsoup.fizzbuzz.app
+package hotmeatballsoup.fizzbuzz.app;
 
 import hotmeatballsoup.fizzbuzz.model.Fizzbuzz;
 
