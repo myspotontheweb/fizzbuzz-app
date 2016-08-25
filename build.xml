@@ -11,17 +11,17 @@
     </target>
 
     <target name="init" depends="clean">
-    		<mkdir dir="build/main" />
-    		<mkdir dir="dist" />
-    		<mkdir dir="gen" />
-  	 </target>
+        <mkdir dir="build/main" />
+        <mkdir dir="dist" />
+        <mkdir dir="gen" />
+    </target>
 
     <target name="resolve" depends="install-ivy">
-  		<ivy:resolve/>
+        <ivy:resolve/>
 
-      <ivy:cachepath pathid="compile.path" conf="compile"/>
-      <ivy:cachepath pathid="test.path"    conf="test"/>
-  	 </target>
+        <ivy:cachepath pathid="compile.path" conf="compile"/>
+        <ivy:cachepath pathid="test.path"    conf="test"/>
+    </target>
 
     <target name="compile" depends="init,resolve">
         <javac srcdir="src/main/java" destdir="build/main" includeantruntime="false" debug="true" classpathref="compile.path"/>
@@ -48,10 +48,10 @@
         <delete dir="dist" quiet="true" />
         <delete dir="build" quiet="true" />
         <delete dir="gen" quiet="true" />
-  	 </target>
+    </target>
 
     <target name="clean-all" depends="clean">
-     <ivy:cleancache/>
-  	 </target>
+        <ivy:cleancache/>
+    </target>
 
 </project>
